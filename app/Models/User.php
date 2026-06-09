@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Override;
 
 /**
  * @property int $id
@@ -36,6 +37,7 @@ final class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    #[Override]
     protected function casts(): array
     {
         return [
