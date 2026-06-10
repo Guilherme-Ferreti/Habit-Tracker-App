@@ -5,18 +5,18 @@
     x-show="open"
     x-cloak
     class="backdrop"
-    @open-bottom-sheet.window="if($event.detail === name) open = true"
+    @open-bottom-sheet.window="if ($event.detail === name) open = true;"
 >
     <div
         @click.away="open = false"
-        class="bg-white w-full max-w-md mx-auto rounded-t-3xl shadow-2xl flex flex-col max-h-[90vh]"
+        class="mx-auto flex max-h-[90vh] w-full max-w-md flex-col rounded-t-3xl bg-white shadow-2xl"
     >
-        <div class="w-full flex justify-center pt-3 pb-2">
-            <div class="w-12 h-1.5 bg-gray-200 rounded-full"></div>
+        <div class="flex w-full justify-center pt-3 pb-2">
+            <div class="h-1.5 w-12 rounded-full bg-gray-200"></div>
         </div>
 
-        <div class="p-6 overflow-y-auto pb-safe">
-            <h2 class="text-xl font-bold text-gray-800 mb-5">{{ $title }}</h2>
+        <div class="pb-safe overflow-y-auto p-6">
+            <h2 class="mb-5 text-xl font-bold text-gray-800">{{ $title }}</h2>
 
             {{ $slot }}
         </div>

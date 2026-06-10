@@ -79,7 +79,8 @@
         "format": [
             "@lint",
             "@rector",
-            "@types:check"
+            "@types:check",
+            "npm run format"
         ],
         "test": [
             "@php artisan config:clear --ansi",
