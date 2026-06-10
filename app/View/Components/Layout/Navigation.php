@@ -24,9 +24,9 @@ final class Navigation extends Component
         return [
             [
                 'name'     => 'Habits',
-                'route'    => route('habits.index'),
+                'route'    => route('home'),
                 'icon'     => 'clipboard-list',
-                'isActive' => request()->routeIs('habits.index'),
+                'isActive' => request()->routeIs('home', 'habits.index'),
             ],
             [
                 'name'     => 'Stats',
