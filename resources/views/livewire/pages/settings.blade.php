@@ -1,8 +1,9 @@
 <div class="space-y-6">
     <h1 class="text-2xl font-bold tracking-tight text-gray-900">Settings</h1>
 
-    <section>
-        <h2 class="mb-3 ml-1 text-sm font-semibold tracking-wider text-gray-500 uppercase">Preferences</h2>
+    <x-ui.section>
+        <x-ui.section.title title="Preferences" />
+
         <div class="divide-y divide-gray-50 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
             <div class="flex items-center justify-between p-4">
                 <div class="flex items-center gap-3">
@@ -58,10 +59,11 @@
                 </button>
             </div>
         </div>
-    </section>
+    </x-ui.section>
 
-    <section>
-        <h2 class="mb-3 ml-1 text-sm font-semibold tracking-wider text-gray-500 uppercase">Data</h2>
+    <x-ui.section>
+        <x-ui.section.title title="Data" />
+
         <div class="divide-y divide-gray-50 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
             <button class="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-gray-50">
                 <div class="flex items-center gap-3">
@@ -117,9 +119,9 @@
                 </div>
             </button>
         </div>
-    </section>
+    </x-ui.section>
 
-    <section>
+    <x-ui.section>
         <div class="flex flex-col items-center justify-center py-6 text-gray-400">
             <svg class="mb-2 h-10 w-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -132,5 +134,5 @@
             <p class="text-sm font-medium">Habit Tracker v1.0.0</p>
             <p class="mt-1 text-xs">Built with NativePHP & Laravel 13</p>
         </div>
-    </section>
+    </x-ui.section>
 </div>

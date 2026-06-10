@@ -1,9 +1,9 @@
 <div class="space-y-6">
-    <section>
-        <h2 class="mb-3 text-sm font-semibold tracking-wider text-gray-500 uppercase">Pending Habits</h2>
+    <x-ui.section>
+        <x-ui.section.title title="Pending Habits" />
 
         <div
-            class="mb-3 flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+            class="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
         >
             <div class="flex items-center gap-4">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
@@ -31,7 +31,7 @@
         </div>
 
         <div
-            class="mb-3 flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+            class="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
         >
             <div class="flex items-center gap-4">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
@@ -57,10 +57,10 @@
                 </svg>
             </button>
         </div>
-    </section>
+    </x-ui.section>
 
-    <section>
-        <h2 class="mb-3 text-sm font-semibold tracking-wider text-gray-500 uppercase">Completed</h2>
+    <x-ui.section>
+        <x-ui.section.title title="Completed" />
 
         <div class="flex items-center justify-between rounded-2xl border border-gray-100 bg-gray-50 p-4 opacity-75">
             <div class="flex items-center gap-4">
@@ -87,10 +87,11 @@
                 </svg>
             </button>
         </div>
-    </section>
+    </x-ui.section>
 
-    <section>
-        <h2 class="mb-3 ml-1 text-sm font-semibold tracking-wider text-gray-500 uppercase">Options</h2>
+    <x-ui.section>
+        <x-ui.section.title title="Options" />
+
         <div class="rounded-2xl border border-gray-100 bg-white p-3 shadow-sm">
             <button
                 type="button"
@@ -112,5 +113,5 @@
                 </svg>
             </button>
         </div>
-    </section>
+        </x-usection>
 </div>

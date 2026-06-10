@@ -76,8 +76,9 @@
         </div>
     </section>
 
-    <section>
-        <h2 class="mb-3 text-sm font-semibold tracking-wider text-gray-500 uppercase">Recent Milestones</h2>
+    <x-ui.section>
+        <x-ui.section.title title="Recent Milestones" />
+
         <div class="space-y-3">
             <div class="flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-3 shadow-sm">
                 <div class="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-50 text-yellow-500">
@@ -93,5 +94,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </x-ui.section>
 </div>
