@@ -2,16 +2,24 @@
 
 declare(strict_types=1);
 
-use Livewire\Attributes\Computed;
-use Livewire\Component;
+namespace App\View\Components\Layout;
 
-new class extends Component
+use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+
+final class Navigation extends Component
 {
+    public function render(): View
+    {
+        return view('components.layout.navigation', [
+            'links' => $this->links(),
+        ]);
+    }
+
     /**
      * @return array<int, array<string, bool|string>>
      */
-    #[Computed]
-    public function links(): array
+    private function links(): array
     {
         return [
             [
@@ -22,16 +30,16 @@ new class extends Component
             ],
             [
                 'name'     => 'Stats',
-                'route'    => '/',
+                'route'    => route('stats'),
                 'icon'     => 'chart-bar-popular',
-                'isActive' => false,
+                'isActive' => request()->routeIs('stats'),
             ],
             [
                 'name'     => 'Settings',
-                'route'    => '/',
+                'route'    => route('settings'),
                 'icon'     => 'settings',
-                'isActive' => false,
+                'isActive' => request()->routeIs('settings'),
             ],
         ];
     }
-};
+}
