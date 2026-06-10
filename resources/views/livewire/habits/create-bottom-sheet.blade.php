@@ -1,11 +1,3 @@
-@php
-    $categories = [
-        ['label' => 'Category 1', 'value' => 'category-1'],
-        ['label' => 'Category 2', 'value' => 'category-2'],
-        ['label' => 'Category 3', 'value' => 'category-3'],
-    ];
-@endphp
-
 <x-ui.bottom-sheet name="create-habit" title="Create New Habit">
     <x-ui.form>
         <x-ui.form.control>
@@ -15,7 +7,7 @@
 
         <x-ui.form.control>
             <x-ui.form.label for="category" text="Category" />
-            <x-ui.form.selector id="category" name="category" :options="$categories" />
+            <x-ui.form.selector id="category" name="category" :options="$this->categories" />
         </x-ui.form.control>
 
         <x-slot:footer>
