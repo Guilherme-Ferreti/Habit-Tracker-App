@@ -11,7 +11,10 @@
         @livewireStyles
     </head>
     <body class="flex h-screen flex-col bg-gray-50 text-gray-900 antialiased">
-        <div class="relative mx-auto flex h-full w-full max-w-md flex-col overflow-hidden bg-white shadow-2xl">
+        <div
+            id="app-container"
+            class="relative mx-auto flex h-full w-full max-w-md flex-col overflow-hidden bg-white shadow-2xl"
+        >
             <x-layout.header />
 
             <main class="flex-1 overflow-y-auto bg-gray-50 p-5 pb-24">{{ $slot }}</main>

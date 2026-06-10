@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-20 bg-slate-900 p-5 pt-8 text-white">
+<header class="sticky top-0 z-10 bg-slate-900 p-5 pt-8 text-white">
     <div class="flex items-center justify-between">
         <div>
             <h1 class="text-2xl font-bold tracking-tight">Today</h1>
