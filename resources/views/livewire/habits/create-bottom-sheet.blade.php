@@ -54,18 +54,10 @@
         </div>
 
         <div class="flex gap-3 pt-4">
-            <button
-                type="button"
-                class="w-1/3 rounded-xl border-2 border-gray-200 bg-white py-3 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+            <x-ui.button class="w-1/3" color="outline" @click="$dispatch('close-bottom-sheet', 'create-habit')">
+                Cancel</x-ui.button
             >
-                Cancel
-            </button>
-            <button
-                type="submit"
-                class="w-2/3 rounded-xl bg-slate-900 py-3 font-semibold text-white shadow-md transition-colors hover:bg-slate-800"
-            >
-                Save Habit
-            </button>
+            <x-ui.button type="submit" class="w-2/3" color="secondary">Save Habit</x-ui.button>
         </div>
     </form>
 </x-ui.bottom-sheet>

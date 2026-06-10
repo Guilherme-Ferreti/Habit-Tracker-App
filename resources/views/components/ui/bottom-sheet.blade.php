@@ -6,6 +6,7 @@
         x-show="isOpen"
         x-cloak
         @open-bottom-sheet.window="if ($event.detail === name) isOpen = true;"
+        @close-bottom-sheet.window="if ($event.detail === name) isOpen = false;"
     >
         <div
             class="backdrop"
@@ -33,7 +34,7 @@
                 <div class="h-1.5 w-12 rounded-full bg-gray-200"></div>
             </div>
 
-            <div class="pb-safe overflow-y-auto p-6">
+            <div class="pb-safe p-6">
                 <h2 class="mb-5 text-xl font-bold text-gray-800">{{ $title }}</h2>
 
                 {{ $slot }}
