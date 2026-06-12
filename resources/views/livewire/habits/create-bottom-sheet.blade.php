@@ -33,6 +33,7 @@
                 type="submit"
                 class="w-2/3"
                 color="secondary"
+                x-bind:disabled="!($wire.form.name && $wire.form.category_id)"
             >
                 Save Habit
             </x-ui.button>
