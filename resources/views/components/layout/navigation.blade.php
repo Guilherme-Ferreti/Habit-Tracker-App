@@ -11,7 +11,10 @@
                     'text-blue-600' => $link['isActive']
                 ])
             >
-                <x-dynamic-component :component="'ui.icons.' . $link['icon']" class="mb-1" />
+                <x-dynamic-component
+                    :component="'ui.icons.' . $link['icon']"
+                    class="mb-1"
+                />
 
                 <span class="text-xs font-medium">{{ $link['name'] }}</span>
             </a>

@@ -2,7 +2,10 @@
 
 <x-ui.form.input-wrapper>
     @if ($label)
-        <x-ui.form.label for="{{ $id }}" text="{{ $label }}" />
+        <x-ui.form.label
+            for="{{ $id }}"
+            text="{{ $label }}"
+        />
     @endif
 
     <div class="flex flex-wrap gap-2">

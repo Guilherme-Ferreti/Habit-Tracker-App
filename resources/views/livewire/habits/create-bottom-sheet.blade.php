@@ -1,4 +1,7 @@
-<x-ui.bottom-sheet name="create-habit" title="Create New Habit">
+<x-ui.bottom-sheet
+    name="create-habit"
+    title="Create New Habit"
+>
     <x-ui.form wire:submit="createHabit">
         <x-ui.form.input
             wire:model="form.name"
@@ -26,7 +29,13 @@
             >
                 Cancel
             </x-ui.button>
-            <x-ui.button type="submit" class="w-2/3" color="secondary">Save Habit</x-ui.button>
+            <x-ui.button
+                type="submit"
+                class="w-2/3"
+                color="secondary"
+            >
+                Save Habit
+            </x-ui.button>
         </x-slot:footer>
     </x-ui.form>
 </x-ui.bottom-sheet>
