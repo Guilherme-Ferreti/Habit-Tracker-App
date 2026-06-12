@@ -5,7 +5,7 @@
     x-show="isOpen"
     x-cloak
     @open-bottom-sheet.window="if ($event.detail === name) isOpen = true;"
-    @close-bottom-sheet.window="if ($event.detail === name) isOpen = false;"
+    @close-bottom-sheet.window="if ($event.detail === name || $event.detail[0] === name) isOpen = false;"
 >
     <div
         class="backdrop"
