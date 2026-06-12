@@ -12,6 +12,8 @@
             <x-ui.icons.plus />
         </button>
     </div>
-
-    <livewire:habits.create-bottom-sheet />
 </header>
+
+@push('bottom-sheets')
+    <livewire:habits.create-bottom-sheet />
+@endpush
