@@ -4,23 +4,33 @@ declare(strict_types=1);
 
 namespace App\Livewire\Habits;
 
+use App\Livewire\Forms\HabitForm;
 use App\Models\Category;
-use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 final class CreateBottomSheet extends Component
 {
+    public HabitForm $form;
+
     /**
-     * @return Collection<int, array{label: string, value: string}>
+     * @return array<mixed>
      */
     #[Computed(cache: true, key: 'create-habit-categories')]
-    public function categories(): Collection
+    public function categories(): array
     {
         return Category::all()
             ->map(fn (Category $category) => [
                 'label' => $category->name,
                 'value' => $category->id,
-            ]);
+            ])
+            ->toArray();
+    }
+
+    public function createHabit(): void
+    {
+        $this->form->store();
+
+        $this->redirectRoute('home');
     }
 }
