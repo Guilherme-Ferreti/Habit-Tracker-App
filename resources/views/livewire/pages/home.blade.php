@@ -92,26 +92,25 @@
     <x-ui.section>
         <x-ui.section.title title="Options" />
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-3 shadow-sm">
-            <button
-                type="button"
-                class="group flex w-full items-center justify-between rounded-xl bg-gray-50 p-3 text-left transition-colors hover:bg-gray-100 active:bg-gray-200"
-            >
-                <div class="flex items-center gap-3">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-gray-800">Manage Habits</p>
-                        <p class="text-xs text-gray-500">Edit parameters or delete habits</p>
-                    </div>
+        <x-ui.card
+            as="a"
+            href="{{ route('habits.index') }}"
+            wire:navigate
+            class="group text-left transition-colors active:bg-gray-100"
+        >
+            <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white">
+                    <x-ui.icons.adjustments size="sm" />
                 </div>
-                <svg class="h-5 w-5 text-gray-400 transition-colors group-hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-        </div>
-        </x-usection>
+                <div>
+                    <p class="text-sm font-semibold text-gray-800">Manage Habits</p>
+                    <p class="text-xs text-gray-500">Edit parameters or delete habits</p>
+                </div>
+            </div>
+            <x-ui.icons.chevron-right
+                size="sm"
+                class="text-gray-400 group-active:text-gray-500"
+            />
+        </x-ui.card>
+    </x-ui.section>
 </div>
