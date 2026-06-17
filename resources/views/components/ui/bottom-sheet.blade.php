@@ -1,11 +1,11 @@
 @props(['name', 'title'])
 
 <div
-    x-data="{ isOpen: false, name: @js($name) }"
+    x-data="{ isOpen: false }"
     x-show="isOpen"
     x-cloak
-    @open-bottom-sheet.window="if ($event.detail === name) isOpen = true;"
-    @close-bottom-sheet.window="if ($event.detail === name || $event.detail[0] === name) isOpen = false;"
+    @open-bottom-sheet:{{ $name }}.window="isOpen = true;"
+    @close-bottom-sheet:{{ $name }}.window="isOpen = false;"
 >
     <div
         class="backdrop"
@@ -16,7 +16,7 @@
         x-transition:leave="transition-opacity duration-200 ease-in"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
-        @click="isOpen = false"
+        @click="$dispatch('close-bottom-sheet:{{ $name }}')"
     ></div>
 
     <div

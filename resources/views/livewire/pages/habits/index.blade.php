@@ -14,6 +14,7 @@
                     <button
                         title="Edit"
                         class="rounded-xl p-2 text-slate-600 transition-colors active:bg-blue-50 active:text-blue-600"
+                        @click="$dispatch('open-bottom-sheet:edit-habit', { id: '{{ $habit->id }}' })"
                     >
                         <x-ui.icons.pencil size="sm" />
                     </button>
@@ -28,3 +29,7 @@
         @endforeach
     </x-ui.section>
 </div>
+
+@push('bottom-sheets')
+    <livewire:habits.edit-bottom-sheet />
+@endpush
