@@ -1,5 +1,5 @@
 <div class="space-y-6">
-    <h1 class="text-2xl font-bold tracking-tight text-gray-900">Settings</h1>
+    <x-ui.page.title title="Settings" />
 
     <x-ui.section>
         <x-ui.section.title title="Preferences" />
