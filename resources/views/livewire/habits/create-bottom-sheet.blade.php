@@ -25,7 +25,7 @@
                 type="reset"
                 class="w-1/3"
                 color="outline"
-                @click="$dispatch('close-bottom-sheet', 'create-habit')"
+                @click="$dispatch('close-bottom-sheet:create-habit')"
             >
                 Cancel
             </x-ui.button>

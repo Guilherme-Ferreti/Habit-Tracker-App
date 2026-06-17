@@ -31,7 +31,7 @@ final class CreateBottomSheet extends Component
     {
         $this->form->store();
 
-        $this->dispatch('close-bottom-sheet', 'create-habit');
+        $this->dispatch('close-bottom-sheet:create-habit');
 
         $this->redirectRoute('home', navigate: true);
     }

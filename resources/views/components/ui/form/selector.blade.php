@@ -21,6 +21,7 @@
                     id="{{ $id }}-{{ $loop->index }}"
                     name="{{ $name }}"
                     value="{{ $option['value'] }}"
+                    @checked($option['selected'] ?? false)
                 />
                 {{ $option['label'] }}
             </label>
