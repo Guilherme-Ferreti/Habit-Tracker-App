@@ -6,7 +6,7 @@
 <div
     {{
         $attributes->class([
-            'flex justify-center items-center w-full flex-col gap-y-3',
+            'flex justify-center items-center w-fit flex-col gap-y-3',
         ])
     }}
 >

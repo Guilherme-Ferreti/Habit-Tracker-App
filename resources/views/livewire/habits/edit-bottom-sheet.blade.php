@@ -6,7 +6,7 @@
         wire:replace.self
         size="lg"
         label="Loading habit..."
-        class="h-77"
+        class="h-77 mx-auto"
         x-data="{ show: false }"
         x-show="show"
         @open-bottom-sheet:edit-habit.window="show = true"
@@ -35,19 +35,18 @@
                 <x-ui.button
                     type="reset"
                     class="w-1/3"
+                    label="Cancel"
                     color="outline"
                     @click="$dispatch('close-bottom-sheet:edit-habit')"
-                >
-                    Cancel
-                </x-ui.button>
+                />
                 <x-ui.button
                     type="submit"
                     class="w-2/3"
+                    label="Save Habit"
                     color="secondary"
+                    show-loading
                     x-bind:disabled="!($wire.form.name && $wire.form.category_id)"
-                >
-                    Save Habit
-                </x-ui.button>
+                />
             </x-slot:footer>
         </x-ui.form>
     @endif

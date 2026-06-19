@@ -25,6 +25,7 @@
             <x-layout.navigation />
 
             @stack('bottom-sheets')
+            @stack('modals')
         </div>
 
         @livewireScripts

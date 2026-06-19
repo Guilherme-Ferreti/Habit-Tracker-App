@@ -24,19 +24,18 @@
             <x-ui.button
                 type="reset"
                 class="w-1/3"
+                label="Cancel"
                 color="outline"
                 @click="$dispatch('close-bottom-sheet:create-habit')"
-            >
-                Cancel
-            </x-ui.button>
+            />
             <x-ui.button
                 type="submit"
                 class="w-2/3"
                 color="secondary"
+                label="Save Habit"
+                show-loading
                 x-bind:disabled="!($wire.form.name && $wire.form.category_id)"
-            >
-                Save Habit
-            </x-ui.button>
+            />
         </x-slot:footer>
     </x-ui.form>
 </x-ui.bottom-sheet>
