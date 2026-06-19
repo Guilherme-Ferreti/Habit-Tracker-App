@@ -24,6 +24,7 @@
                     <button
                         title="Delete"
                         class="rounded-xl p-2 text-slate-600 transition-colors active:bg-red-50 active:text-red-600"
+                        @click="$dispatch('open-confirm-modal:delete-habit', { id: '{{ $habit->id }}' })"
                     >
                         <x-ui.icon
                             name="trash"
@@ -38,4 +39,15 @@
 
 @push('bottom-sheets')
     <livewire:habits.edit-bottom-sheet />
+@endpush
+
+@push('modals')
+    <x-ui.confirm-modal
+        name="delete-habit"
+        title="Delete Habit"
+        message="Are you sure you want to delete this habit? This action cannot be undone."
+        confirm-label="Delete"
+        confirm-variant="danger"
+        icon="trash"
+    />
 @endpush
