@@ -7,17 +7,7 @@
     @open-bottom-sheet:{{ $name }}.window="isOpen = true;"
     @close-bottom-sheet:{{ $name }}.window="isOpen = false;"
 >
-    <div
-        class="backdrop"
-        x-show="isOpen"
-        x-transition:enter="transition-opacity duration-300 ease-out"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition-opacity duration-200 ease-in"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        @click="$dispatch('close-bottom-sheet:{{ $name }}')"
-    ></div>
+    <x-ui.backdrop @click="$dispatch('close-bottom-sheet:{{ $name }}')" />
 
     <div
         class="absolute bottom-0 z-30 mx-auto flex max-h-[90vh] w-full max-w-md flex-col rounded-t-3xl bg-white shadow-2xl"

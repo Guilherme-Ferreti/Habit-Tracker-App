@@ -14,9 +14,6 @@
         padding-bottom: env(safe-area-inset-bottom, 1rem);
     }
 
-    .backdrop {
-        @apply fixed inset-0 z-20 flex flex-col justify-end bg-slate-900/40 backdrop-blur-sm;
-    }
 }
 
 .x-cloak {
