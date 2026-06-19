@@ -1,5 +1,5 @@
 <svg
-    {{ $attributes->class(['size-6']) }}
+    {{ $attributes }}
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"

@@ -100,14 +100,18 @@
         >
             <div class="flex items-center gap-3">
                 <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white">
-                    <x-ui.icons.adjustments size="sm" />
+                    <x-ui.icon
+                        name="adjustments"
+                        size="sm"
+                    />
                 </div>
                 <div>
                     <p class="text-sm font-semibold text-gray-800">Manage Habits</p>
                     <p class="text-xs text-gray-500">Edit parameters or delete habits</p>
                 </div>
             </div>
-            <x-ui.icons.chevron-right
+            <x-ui.icon
+                name="chevron-right"
                 size="sm"
                 class="text-gray-400 group-active:text-gray-500"
             />

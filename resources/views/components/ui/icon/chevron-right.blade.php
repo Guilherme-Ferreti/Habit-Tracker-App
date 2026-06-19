@@ -1,12 +1,5 @@
-@props(['size' => 'md'])
-
 <svg
-    {{
-        $attributes->class([
-            'size-5' => $size === 'sm',
-            'size-6' => $size === 'md',
-        ])
-    }}
+    {{ $attributes }}
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"

@@ -16,13 +16,19 @@
                         class="rounded-xl p-2 text-slate-600 transition-colors active:bg-blue-50 active:text-blue-600"
                         @click="$dispatch('open-bottom-sheet:edit-habit', { id: '{{ $habit->id }}' })"
                     >
-                        <x-ui.icons.pencil size="sm" />
+                        <x-ui.icon
+                            name="pencil"
+                            size="sm"
+                        />
                     </button>
                     <button
                         title="Delete"
                         class="rounded-xl p-2 text-slate-600 transition-colors active:bg-red-50 active:text-red-600"
                     >
-                        <x-ui.icons.trash size="sm" />
+                        <x-ui.icon
+                            name="trash"
+                            size="sm"
+                        />
                     </button>
                 </div>
             </x-ui.card>

@@ -6,7 +6,7 @@
         wire:replace.self
         size="lg"
         label="Loading habit..."
-        class="h-77 mx-auto"
+        class="mx-auto h-77"
         x-data="{ show: false }"
         x-show="show"
         @open-bottom-sheet:edit-habit.window="show = true"

@@ -17,7 +17,6 @@
 >
     @if ($showLoading)
         <span wire:loading.remove> {{ $label }} </span>
-
         <x-ui.loading-indicator
             wire:loading
             size="sm"
