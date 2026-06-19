@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Database\Factories\HabitFactory;
 use Illuminate\Database\Eloquent\Attributes\Unguarded;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -21,7 +23,8 @@ use Illuminate\Support\Carbon;
 #[Unguarded]
 final class Habit extends Model
 {
-    use HasUuids;
+    /** @use HasFactory<HabitFactory> */
+    use HasFactory, HasUuids;
 
     /**
      * @return BelongsTo<Category, $this>
