@@ -7,10 +7,12 @@
     @open-bottom-sheet:{{ $name }}.window="isOpen = true;"
     @close-bottom-sheet:{{ $name }}.window="isOpen = false;"
 >
-    <x-ui.backdrop @click="$dispatch('close-bottom-sheet:{{ $name }}')" />
-
+    <x-ui.backdrop
+        x-show="isOpen"
+        @click="$dispatch('close-bottom-sheet:{{ $name }}')"
+    />
     <div
-        class="absolute bottom-0 z-30 mx-auto flex max-h-[90vh] w-full max-w-md flex-col rounded-t-3xl bg-white shadow-2xl"
+        class="absolute bottom-0 z-30 flex max-h-[90vh] w-full flex-col rounded-t-3xl bg-white shadow-2xl"
         x-show="isOpen"
         x-transition:enter="transition-all duration-300 ease-out"
         x-transition:enter-start="translate-y-full"

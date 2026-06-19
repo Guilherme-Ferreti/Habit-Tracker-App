@@ -33,7 +33,7 @@
                 class="w-2/3"
                 color="secondary"
                 label="Save Habit"
-                show-loading
+                wire:loading.attr="disabled"
                 x-bind:disabled="!($wire.form.name && $wire.form.category_id)"
             />
         </x-slot:footer>

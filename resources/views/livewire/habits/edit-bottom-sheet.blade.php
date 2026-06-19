@@ -37,6 +37,7 @@
                     class="w-1/3"
                     label="Cancel"
                     color="outline"
+                    wire:loading.attr="disabled"
                     @click="$dispatch('close-bottom-sheet:edit-habit')"
                 />
                 <x-ui.button
@@ -44,7 +45,7 @@
                     class="w-2/3"
                     label="Save Habit"
                     color="secondary"
-                    show-loading
+                    wire:loading.attr="disabled"
                     x-bind:disabled="!($wire.form.name && $wire.form.category_id)"
                 />
             </x-slot:footer>
