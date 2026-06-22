@@ -33,7 +33,7 @@
             />
             <x-slot:footer>
                 <x-ui.button
-                    type="reset"
+                    type="button"
                     class="w-1/3"
                     label="Cancel"
                     color="outline"

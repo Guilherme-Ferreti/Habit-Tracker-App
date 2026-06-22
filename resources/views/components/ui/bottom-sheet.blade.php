@@ -1,11 +1,22 @@
 @props(['name', 'title'])
 
+@php
+    $openAnimationDuration = 300;
+    $closeAnimationDuration = 200;
+@endphp
+
 <div
     x-data="{ isOpen: false }"
     x-show="isOpen"
     x-cloak
-    @open-bottom-sheet:{{ $name }}.window="isOpen = true;"
-    @close-bottom-sheet:{{ $name }}.window="isOpen = false;"
+    @open-bottom-sheet:{{ $name }}.window="() => {
+        isOpen = true;
+        setTimeout(() => $dispatch('after-open-bottom-sheet:{{ $name }}', $event.detail), {{ $openAnimationDuration }});
+    }"
+    @close-bottom-sheet:{{ $name }}.window="() => {
+        isOpen = false;
+        setTimeout(() => $dispatch('after-close-bottom-sheet:{{ $name }}', $event.detail), {{ $closeAnimationDuration }});
+    }"
 >
     <x-ui.backdrop
         x-show="isOpen"
@@ -14,10 +25,10 @@
     <div
         class="absolute bottom-0 z-30 flex max-h-[90vh] w-full flex-col rounded-t-3xl bg-white shadow-2xl"
         x-show="isOpen"
-        x-transition:enter="transition-all duration-300 ease-out"
+        x-transition:enter="transition-all duration-{{ $openAnimationDuration }} ease-out"
         x-transition:enter-start="translate-y-full"
         x-transition:enter-end="translate-y-0"
-        x-transition:leave="transition-all duration-200 ease-in"
+        x-transition:leave="transition-all duration-{{ $closeAnimationDuration }} ease-in"
         x-transition:leave-start="translate-y-0"
         x-transition:leave-end="translate-y-full"
     >

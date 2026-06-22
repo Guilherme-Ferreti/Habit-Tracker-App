@@ -29,16 +29,16 @@ final class EditBottomSheet extends Component
             ->toArray();
     }
 
-    #[On('open-bottom-sheet:edit-habit')]
-    public function onOpen(string $id): void
+    #[On('after-open-bottom-sheet:edit-habit')]
+    public function onAfterOpen(string $id): void
     {
         $this->form->setHabit(Habit::query()->find($id));
     }
 
-    #[On('close-bottom-sheet:edit-habit')]
-    public function onClose(): void
+    #[On('after-close-bottom-sheet:edit-habit')]
+    public function onAfterClose(): void
     {
-        $this->form->reset('habit');
+        $this->form->reset();
     }
 
     public function updateHabit(): void
