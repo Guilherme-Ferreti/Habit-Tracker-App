@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Forms;
 
+use App\Helpers\CacheHelper;
 use App\Models\Habit;
 use Livewire\Form;
 
@@ -41,6 +42,8 @@ final class HabitForm extends Form
         Habit::create($this->only('name', 'category_id'));
 
         $this->reset();
+
+        CacheHelper::clearStatsCache();
     }
 
     public function update(): void

@@ -57,7 +57,7 @@ final class Habit extends Model
     public function scopeCompletedToday(Builder $query): void
     {
         /** @phpstan-ignore-next-line */
-        $query->whereHas('completions', fn (Builder $q) => $q->today());
+        $query->whereHas('completions', fn (Builder $query) => $query->today());
     }
 
     /**

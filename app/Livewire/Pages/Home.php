@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages;
 
+use App\Actions\Habit\ToggleComplete;
 use App\Models\Habit;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -23,15 +24,6 @@ final class Home extends Component
     {
         $habit = Habit::findOrFail($habitId);
 
-        if ($habit->isCompletedToday()) {
-            $habit->completions()->today()->delete();
-        } else {
-            $habit->completions()->create([
-                'completed_at' => now(),
-            ]);
-        }
-
-        cache()->forget('stats.today-completion-percentage');
-        cache()->forget('stats.week-completion');
+        new ToggleComplete()->handle($habit);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages\Habits;
 
+use App\Helpers\CacheHelper;
 use App\Models\Habit;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -25,6 +26,8 @@ final class Index extends Component
         $habit = Habit::findOrFail($id);
 
         $habit->delete();
+
+        CacheHelper::clearStatsCache();
 
         $this->dispatch('close-confirm-modal:delete-habit');
     }
