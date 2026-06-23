@@ -11,5 +11,6 @@ final class DeleteAllData
     public function handle(): void
     {
         Artisan::call('migrate:fresh');
+        Artisan::call('cache:clear');
     }
 }
