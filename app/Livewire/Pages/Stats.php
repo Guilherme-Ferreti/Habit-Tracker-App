@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages;
 
+use App\Actions\Stats\GetMostActiveDay;
 use App\Actions\Stats\GetTodayCompletionPercentage;
 use App\Actions\Stats\GetWeekCompletion;
 use App\Models\HabitCompletion;
@@ -38,5 +39,11 @@ final class Stats extends Component
     public function weekCompletion(): array
     {
         return new GetWeekCompletion()->handle();
+    }
+
+    #[Computed(cache: true, key: 'stats.most-active-day')]
+    public function mostActiveDay(): string
+    {
+        return new GetMostActiveDay()->handle() ?? 'N/A';
     }
 }

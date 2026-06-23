@@ -20,7 +20,7 @@ final class HabitCompletionFactory extends Factory
     {
         return [
             'habit_id'     => Habit::factory(),
-            'completed_at' => fake()->dateTimeBetween('-30 days', 'today'),
+            'completed_at' => fake()->dateTimeBetween('-7 days', 'today'),
         ];
     }
 }

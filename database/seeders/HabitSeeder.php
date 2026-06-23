@@ -18,8 +18,6 @@ final class HabitSeeder extends Seeder
     {
         $habits = Habit::factory(25)->recycle(Category::all())->create();
 
-        $habits = $habits->shuffle()->take(10);
-
-        HabitCompletion::factory()->recycle($habits)->create();
+        $habits->shuffle()->take(10)->each(fn (Habit $habit) => HabitCompletion::factory(3)->for($habit)->create());
     }
 }

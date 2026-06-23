@@ -12,6 +12,12 @@
             icon="check-circled"
             color="green"
         />
+        <x-ui.stats-card
+            :stat="$this->mostActiveDay"
+            description="Most active day"
+            icon="calendar-smile"
+            color="purple"
+        />
     </section>
     <section class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
         <h2 class="mb-4 text-sm font-semibold text-gray-800">This Week</h2>
