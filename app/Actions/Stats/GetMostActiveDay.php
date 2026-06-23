@@ -5,15 +5,26 @@ declare(strict_types=1);
 namespace App\Actions\Stats;
 
 use App\Models\HabitCompletion;
+use Illuminate\Support\Facades\DB;
 
 final class GetMostActiveDay
 {
     public function handle(): ?string
     {
+        $driver = DB::connection()->getDriverName();
+
+        $dayOfWeekExpression = $driver === 'pgsql'
+            ? 'EXTRACT(DOW FROM completed_at) as day_of_week'
+            : "strftime('%w', completed_at) as day_of_week";
+
+        $groupByExpression = $driver === 'pgsql'
+            ? 'EXTRACT(DOW FROM completed_at)'
+            : "strftime('%w', completed_at)";
+
         $dayOfWeek = HabitCompletion::query()
-            ->selectRaw("strftime('%w', completed_at) as day_of_week")
+            ->selectRaw($dayOfWeekExpression)
             ->selectRaw('count(*) as total')
-            ->groupByRaw("strftime('%w', completed_at)")
+            ->groupByRaw($groupByExpression)
             ->orderByDesc('total')
             ->limit(1)
             ->value('day_of_week');
