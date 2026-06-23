@@ -32,5 +32,6 @@ final class Home extends Component
         }
 
         cache()->forget('stats.today-completion-percentage');
+        cache()->forget('stats.week-completion');
     }
 }

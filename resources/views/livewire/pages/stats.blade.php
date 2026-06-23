@@ -2,9 +2,10 @@
     <section class="grid grid-cols-2 gap-4">
         <div class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
             <div class="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-blue-600">
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
+                <x-ui.icon
+                    name="bolt"
+                    size="xs"
+                />
             </div>
             <p class="text-2xl font-bold text-gray-800">12</p>
             <p class="text-xs font-medium text-gray-500">Day Streak</p>
@@ -26,49 +27,20 @@
         <h2 class="mb-4 text-sm font-semibold text-gray-800">This Week</h2>
 
         <div class="flex h-32 items-end justify-between gap-2">
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-blue-100">
-                    <div
-                        class="absolute bottom-0 w-full rounded-t-md bg-blue-600 transition-all duration-500"
-                        style="height: 60%"
-                    ></div>
+            @foreach ($this->weekCompletion as $week)
+                <div
+                    wire:key="{{ $week['day'] }}"
+                    class="flex h-full w-full flex-col items-center"
+                >
+                    <div class="relative h-full w-full overflow-hidden rounded-t-md bg-blue-100">
+                        <div
+                            class="absolute bottom-0 w-full rounded-t-md bg-blue-600 transition-all duration-500"
+                            style="height: {{ $week['completedPercentage'] }}%"
+                        ></div>
+                    </div>
+                    <span class="mt-2 text-xs font-medium text-gray-400">{{ $week['label'] }}</span>
                 </div>
-                <span class="mt-2 text-xs font-medium text-gray-400">Mon</span>
-            </div>
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-blue-100">
-                    <div
-                        class="absolute bottom-0 w-full rounded-t-md bg-blue-600 transition-all duration-500"
-                        style="height: 80%"
-                    ></div>
-                </div>
-                <span class="mt-2 text-xs font-medium text-gray-400">Tue</span>
-            </div>
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-blue-100">
-                    <div
-                        class="absolute bottom-0 w-full rounded-t-md bg-blue-600 transition-all duration-500"
-                        style="height: 100%"
-                    ></div>
-                </div>
-                <span class="mt-2 text-xs font-bold text-gray-800">Wed</span>
-            </div>
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-gray-100"></div>
-                <span class="mt-2 text-xs font-medium text-gray-400">Thu</span>
-            </div>
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-gray-100"></div>
-                <span class="mt-2 text-xs font-medium text-gray-400">Fri</span>
-            </div>
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-gray-100"></div>
-                <span class="mt-2 text-xs font-medium text-gray-400">Sat</span>
-            </div>
-            <div class="flex h-full w-full flex-col items-center">
-                <div class="relative h-full w-full overflow-hidden rounded-t-md bg-gray-100"></div>
-                <span class="mt-2 text-xs font-medium text-gray-400">Sun</span>
-            </div>
+            @endforeach
         </div>
     </section>
 
