@@ -7,6 +7,12 @@
             color="green"
         />
         <x-ui.stats-card
+            :stat="$this->monthCompletionPercentage"
+            description="Completion this month"
+            icon="chart-bar-popular"
+            color="cyan"
+        />
+        <x-ui.stats-card
             :stat="$this->completedHabitsCount"
             description="Completed habits"
             icon="bolt"

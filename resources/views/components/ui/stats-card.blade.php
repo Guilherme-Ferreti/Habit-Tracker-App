@@ -6,7 +6,8 @@
             'mb-2 flex h-8 w-8 items-center justify-center rounded-full',
             'bg-blue-50 text-blue-600' => $color === 'blue',
             'bg-green-50 text-green-600' => $color === 'green',
-            'bg-purple-50 text-purple-600' => $color === 'purple'
+            'bg-purple-50 text-purple-600' => $color === 'purple',
+            'bg-cyan-50 text-cyan-600' => $color === 'cyan'
         ])
     >
         <x-ui.icon

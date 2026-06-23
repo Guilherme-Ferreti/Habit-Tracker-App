@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Pages;
 
+use App\Actions\Stats\GetMonthCompletionPercentage;
 use App\Actions\Stats\GetMostActiveDay;
 use App\Actions\Stats\GetTodayCompletionPercentage;
 use App\Actions\Stats\GetWeekCompletion;
@@ -24,6 +25,14 @@ final class Stats extends Component
     public function todayCompletionPercentage(): string
     {
         $percentage = new GetTodayCompletionPercentage()->handle();
+
+        return is_null($percentage) ? 'N/A' : $percentage . '%';
+    }
+
+    #[Computed(cache: true, key: 'stats.month-completion-percentage')]
+    public function monthCompletionPercentage(): string
+    {
+        $percentage = new GetMonthCompletionPercentage()->handle();
 
         return is_null($percentage) ? 'N/A' : $percentage . '%';
     }
