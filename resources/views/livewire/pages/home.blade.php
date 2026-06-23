@@ -2,91 +2,72 @@
     <x-ui.section>
         <x-ui.section.title title="Pending Habits" />
 
-        <div
-            class="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
-        >
-            <div class="flex items-center gap-4">
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                        ></path>
-                    </svg>
+        @forelse ($pendingHabits as $habit)
+            <x-ui.card wire:key="{{ $habit->id }}">
+                <div class="flex items-center gap-4">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                        <x-ui.icon name="cloud" />
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800">{{ $habit->name }}</h3>
+                        <p class="text-sm text-gray-500">{{ $habit->category?->name ?? 'Daily' }}</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-bold text-gray-800">Morning Walk</h3>
-                    <p class="text-sm text-gray-500">30 minutes</p>
-                </div>
-            </div>
-            <button
-                class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-300 transition-colors hover:border-blue-500"
-            >
-                <svg class="h-5 w-5 text-transparent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-            </button>
-        </div>
-
-        <div
-            class="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
-        >
-            <div class="flex items-center gap-4">
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                        ></path>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-gray-800">Read 20 Pages</h3>
-                    <p class="text-sm text-gray-500">Self-improvement</p>
-                </div>
-            </div>
-            <button
-                class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-300 transition-colors hover:border-blue-500"
-            >
-                <svg class="h-5 w-5 text-transparent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-            </button>
-        </div>
+                <button
+                    wire:click="toggleComplete('{{ $habit->id }}')"
+                    wire:target="toggleComplete('{{ $habit->id }}')"
+                    wire:loading.remove
+                    class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-300 active:border-blue-600"
+                >
+                    <span class="sr-only">Mark as complete</span>
+                </button>
+                <x-ui.loading-indicator
+                    wire:loading
+                    wire:target="toggleComplete('{{ $habit->id }}')"
+                    size="lg"
+                />
+            </x-ui.card>
+        @empty
+            <x-ui.empty-state message="No pending habits today!" />
+        @endforelse
     </x-ui.section>
 
     <x-ui.section>
         <x-ui.section.title title="Completed" />
 
-        <div class="flex items-center justify-between rounded-2xl border border-gray-100 bg-gray-50 p-4 opacity-75">
-            <div class="flex items-center gap-4">
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                        ></path>
-                    </svg>
+        @forelse ($completedHabits as $habit)
+            <x-ui.card wire:key="{{ $habit->id }}">
+                <div class="flex items-center gap-4">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                        <x-ui.icon name="cube" />
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-500 line-through">{{ $habit->name }}</h3>
+                        <p class="text-sm text-gray-400">{{ $habit->category?->name ?? 'Daily' }}</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-bold text-gray-500 line-through">Drink Water</h3>
-                    <p class="text-sm text-gray-400">2 Liters</p>
-                </div>
-            </div>
-            <button
-                class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-blue-600 bg-blue-600 transition-colors"
-            >
-                <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-            </button>
-        </div>
+                <button
+                    wire:click="toggleComplete('{{ $habit->id }}')"
+                    wire:target="toggleComplete('{{ $habit->id }}')"
+                    wire:loading.remove
+                    class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-blue-600 bg-blue-600 transition-colors active:bg-white active:text-blue-600"
+                >
+                    <x-ui.icon
+                        name="check"
+                        size="sm"
+                        class="text-white"
+                    />
+                    <span class="sr-only">Mark as incomplete</span>
+                </button>
+                <x-ui.loading-indicator
+                    wire:loading
+                    wire:target="toggleComplete('{{ $habit->id }}')"
+                    size="lg"
+                />
+            </x-ui.card>
+        @empty
+            <x-ui.empty-state message="No habits completed yet today." />
+        @endforelse
     </x-ui.section>
 
     <x-ui.section>

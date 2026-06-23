@@ -7,7 +7,10 @@
         @if ($habits->isNotEmpty())
             <ul class="space-y-3">
                 @foreach ($habits as $habit)
-                    <x-ui.card as="li">
+                    <x-ui.card
+                        wire:key="{{ $habit->id }}"
+                        as="li"
+                    >
                         <div>
                             <h3 class="text-base font-bold text-gray-800">{{ $habit->name }}</h3>
                             <p class="text-xs text-gray-500">Daily • {{ $habit->category->name }}</p>
