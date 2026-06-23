@@ -7,7 +7,8 @@
     "mcp": true,
     "nightwatch": false,
     "packages": [
-        "livewire/blaze"
+        "livewire/blaze",
+        "nativephp/mobile"
     ],
     "sail": false,
     "skills": [
@@ -15,6 +16,7 @@
         "livewire-development",
         "pest-testing",
         "tailwindcss-development",
-        "blaze-optimize"
+        "blaze-optimize",
+        "nativephp-mobile"
     ]
 }
