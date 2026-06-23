@@ -63,8 +63,8 @@ final class GetWeekCompletion
         }
 
         $completionsCount = once(fn () => HabitCompletion::query()
-            ->whereDate('completed_at', '>=', now()->startOfWeek())
-            ->whereDate('completed_at', '<=', now()->endOfWeek())
+            ->whereDate('completed_at', '>=', now()->startOfWeek(Carbon::SUNDAY))
+            ->whereDate('completed_at', '<=', now()->endOfWeek(Carbon::SATURDAY))
             ->with('habit')
             ->get())
             ->filter(fn (HabitCompletion $completion) => $completion->completed_at->isDayOfWeek($day))
