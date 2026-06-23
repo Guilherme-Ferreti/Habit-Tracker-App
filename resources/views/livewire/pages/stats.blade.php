@@ -7,8 +7,8 @@
                     size="xs"
                 />
             </div>
-            <p class="text-2xl font-bold text-gray-800">12</p>
-            <p class="text-xs font-medium text-gray-500">Day Streak</p>
+            <p class="text-2xl font-bold text-gray-800">{{ $this->completedHabitsCount }}</p>
+            <p class="text-xs font-medium text-gray-500">Completed habits</p>
         </div>
 
         <x-ui.card class="flex-col">
