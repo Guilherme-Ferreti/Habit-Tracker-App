@@ -30,5 +30,7 @@ final class Home extends Component
                 'completed_at' => now(),
             ]);
         }
+
+        cache()->forget('stats.today-completion-percentage');
     }
 }

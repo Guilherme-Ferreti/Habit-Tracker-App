@@ -10,6 +10,7 @@
                     <x-ui.card
                         wire:key="{{ $habit->id }}"
                         as="li"
+                        class="items-center justify-between"
                     >
                         <div>
                             <h3 class="text-base font-bold text-gray-800">{{ $habit->name }}</h3>

@@ -10,20 +10,16 @@
             <p class="text-xs font-medium text-gray-500">Day Streak</p>
         </div>
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+        <x-ui.card class="flex-col">
             <div class="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-green-50 text-green-600">
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                </svg>
+                <x-ui.icon
+                    name="check-circled"
+                    size="xs"
+                />
             </div>
-            <p class="text-2xl font-bold text-gray-800">85%</p>
+            <p class="text-2xl font-bold text-gray-800">{{ $this->todayCompletionPercentage }}%</p>
             <p class="text-xs font-medium text-gray-500">Completion</p>
-        </div>
+        </x-ui.card>
     </section>
 
     <section class="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">

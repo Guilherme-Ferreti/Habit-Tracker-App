@@ -3,7 +3,10 @@
         <x-ui.section.title title="Pending Habits" />
 
         @forelse ($pendingHabits as $habit)
-            <x-ui.card wire:key="{{ $habit->id }}">
+            <x-ui.card
+                wire:key="{{ $habit->id }}"
+                class="items-center justify-between"
+            >
                 <div class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                         <x-ui.icon name="cloud" />
@@ -36,7 +39,10 @@
         <x-ui.section.title title="Completed" />
 
         @forelse ($completedHabits as $habit)
-            <x-ui.card wire:key="{{ $habit->id }}">
+            <x-ui.card
+                wire:key="{{ $habit->id }}"
+                class="items-center justify-between"
+            >
                 <div class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
                         <x-ui.icon name="cube" />
@@ -77,7 +83,7 @@
             as="a"
             href="{{ route('habits.index') }}"
             wire:navigate
-            class="group text-left transition-colors active:bg-gray-100"
+            class="group items-center justify-between text-left transition-colors active:bg-gray-100"
         >
             <div class="flex items-center gap-3">
                 <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white">
