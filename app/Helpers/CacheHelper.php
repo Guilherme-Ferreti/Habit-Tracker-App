@@ -8,8 +8,8 @@ final class CacheHelper
 {
     public static function clearStatsCache(): void
     {
-        cache()->forget('stats.completed-habits-count');
         cache()->forget('stats.today-completion-percentage');
+        cache()->forget('stats.completed-habits-count');
         cache()->forget('stats.most-active-day');
         cache()->forget('stats.week-completion');
     }

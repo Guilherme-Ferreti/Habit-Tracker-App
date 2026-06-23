@@ -1,16 +1,16 @@
 <div class="space-y-6">
     <section class="grid grid-cols-2 gap-4">
         <x-ui.stats-card
+            :stat="$this->todayCompletionPercentage"
+            description="Completion today"
+            icon="check-circled"
+            color="green"
+        />
+        <x-ui.stats-card
             :stat="$this->completedHabitsCount"
             description="Completed habits"
             icon="bolt"
             color="blue"
-        />
-        <x-ui.stats-card
-            :stat="$this->todayCompletionPercentage . '%'"
-            description="Completion"
-            icon="check-circled"
-            color="green"
         />
         <x-ui.stats-card
             :stat="$this->mostActiveDay"

@@ -20,16 +20,18 @@ final class Stats extends Component
         return view('livewire.pages.stats');
     }
 
+    #[Computed(cache: true, key: 'stats.today-completion-percentage')]
+    public function todayCompletionPercentage(): string
+    {
+        $percentage = new GetTodayCompletionPercentage()->handle();
+
+        return is_null($percentage) ? 'N/A' : $percentage . '%';
+    }
+
     #[Computed(cache: true, key: 'stats.completed-habits-count')]
     public function completedHabitsCount(): int
     {
         return HabitCompletion::query()->count();
-    }
-
-    #[Computed(cache: true, key: 'stats.today-completion-percentage')]
-    public function todayCompletionPercentage(): int
-    {
-        return new GetTodayCompletionPercentage()->handle();
     }
 
     /**
