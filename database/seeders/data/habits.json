@@ -1,0 +1,12 @@
+[
+    {"habit": "Read 10 pages", "category": "Self-improvement"},
+    {"habit": "Learn something new", "category": "Self-improvement"},
+    {"habit": "Write in journal", "category": "Self-improvement"},
+    {"habit": "Plan the next day", "category": "Productivity"},
+    {"habit": "Tidy up for 15 minutes", "category": "Productivity"},
+    {"habit": "Exercise for 30 minutes", "category": "Health"},
+    {"habit": "Drink 8 glasses of water", "category": "Health"},
+    {"habit": "No sugar", "category": "Health"},
+    {"habit": "Call a friend", "category": "Relationships"},
+    {"habit": "Meditate", "category": "Fun"}
+]
