@@ -9,7 +9,7 @@
             >
                 <div class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                        <x-ui.icon name="cloud" />
+                        <x-ui.icon name="clipboard-list" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-gray-800">{{ $habit->name }}</h3>
@@ -45,7 +45,7 @@
             >
                 <div class="flex items-center gap-4">
                     <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
-                        <x-ui.icon name="cube" />
+                        <x-ui.icon name="check-circled" />
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-gray-500 line-through">{{ $habit->name }}</h3>
